@@ -1,6 +1,6 @@
-from typing import List
-import logging
 import os
+import logging
+from typing import List
 import pytest
 from dep_graph.dep_graph import DependencyHandler
 
@@ -27,8 +27,7 @@ def test_print_dependencies(capfd, expected_outputs: List[str]):
         handler = DependencyHandler(os.path.join(test_dir, input_filename))
         handler.load_dependencies()
         handler.print_dependencies()
-        out, err = capfd.readouterr()
-        # assert not err, "An error is raised during the execution."
+        out, _ = capfd.readouterr()
         assert (
             out == expected
         ), "Function output does not match with the expected output."
