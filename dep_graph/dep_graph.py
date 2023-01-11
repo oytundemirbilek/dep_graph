@@ -43,12 +43,3 @@ class DependencyHandler:
             logging.warning(e)
 
         return self.dependency_dict
-
-
-if __name__ == "__main__":
-    import os
-
-    test_dir = os.path.dirname(__file__)
-    handler = DependencyHandler(os.path.join(test_dir, "..", "tests", "./deps1.json"))
-    handler.load_dependencies()
-    handler.print_dependencies()
