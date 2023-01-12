@@ -1,2 +1,3 @@
 # ignore ALL __pycache__ files
 *__pycache__
+*.egg-info
