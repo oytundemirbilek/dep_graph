@@ -5,3 +5,16 @@
 - pkg2
   - pkg3
 - pkg3
+- pkg4
+  - pkg1
+    - pkg2
+      - pkg3
+    - pkg3
+  - pkg2
+    - pkg3
+  - pkg5
+    - pkg2
+      - pkg3
+- pkg5
+  - pkg2
+    - pkg3

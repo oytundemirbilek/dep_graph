@@ -21,12 +21,17 @@ class DependencyHandler:
 
     def _print_single_package_dependencies(self, package_name: str) -> None:
         """
-        Formats and prints the provided dependency data.
+        Recursive function that calls children nodes until reaching a leaf node.
         """
+        # Increase tree_level to adjust indents for children.
         self.tree_level += 1
         for dependency in self.dependency_dict[package_name]:
+            # Indents are 2 empty spaces for each tree level.
+            # Potential improvement: Can be made editable.
             print(self.tree_level * 2 * " " + f"- {dependency}")
+            # Call children.
             self._print_single_package_dependencies(dependency)
+        # Reset tree_level.
         self.tree_level -= 1
 
     def print_dependencies(self) -> None:
@@ -35,6 +40,7 @@ class DependencyHandler:
         """
         package_list = self.dependency_dict.keys()
         for package_name in package_list:
+            # Print root nodes.
             print(f"- {package_name}")
             self._print_single_package_dependencies(package_name)
 
